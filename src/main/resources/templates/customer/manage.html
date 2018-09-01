@@ -1,0 +1,62 @@
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  layout:decorator="layouts/main">
+<head>
+  <title>Manage Customers</title>
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"/>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="col-lg-offset-1 col-lg-10">
+    <div class="page-header">
+      <h2>Manage Customers</h2>
+    </div>
+  </div>
+  <div class="col-lg-offset-1 col-lg-10">
+    <div class="btn-group pull-right" role="group">
+      <a class="btn btn-primary" th:href="@{/customer/add}">Add</a>
+    </div>
+    <table id="table-customer" class="table table-hover table-responsive dataTable">
+      <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address Line 1</th>
+        <th>Postcode</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="customer : ${customers}">
+        <td nowrap="true" th:text="${customer.forename}"></td>
+        <td nowrap="true" th:text="${customer.surname}"></td>
+        <td nowrap="true" th:text="${customer.addresses[0].line1}"></td>
+        <td nowrap="true" th:text="${customer.addresses[0].postcode}"></td>
+        <td nowrap="true">
+          <div class="btn-toolbar" role="toolbar">
+            <a th:href="@{/customer/copy/__${customer.id}__}" class="btn btn-primary btn-xs">Copy</a>
+            <a th:href="@{/customer/edit/__${customer.id}__}" class="btn btn-warning btn-xs">Edit</a>
+            <a th:href="@{/customer/delete/__${customer.id}__}" class="btn btn-danger btn-xs">Delete</a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<th:block layout:fragment="javascript">
+  <script type="text/javascript" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+  <script>
+$(document).ready(function(){
+  $('#table-customer').DataTable({
+    autoWidth: false, dom: 'tip', ordering: false, pageLength: 50,
+    language: {
+      emptyTable: 'No customer has been recorded.'
+    },
+  });
+});
+
+  </script>
+</th:block>
+</body>
+</html>

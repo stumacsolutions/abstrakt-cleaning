@@ -1,0 +1,14 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div class="form-group" th:classappend="(${#fields.hasErrors(name)}? ' has-error')">
+  <label class="col-lg-2 control-label" th:for="${name}" th:text="${label}">Label</label>
+  <div class="col-lg-10">
+    <select class="form-control" th:field="*{__${name}__}" th:id="${name}">
+      <option value="" selected="true">Please select</option>
+      <option th:each="option : ${__${options}__}" th:value="${option.id}" th:text="${option.displayName}">
+        Option
+      </option>
+    </select>
+    <th:block th:include="fragments/errors"/>
+  </div>
+</div>
+</html>

@@ -1,0 +1,42 @@
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:val="http://sourceforge.net/projects/html5valdialect"
+  layout:decorator="layouts/main">
+<head>
+  <title>Delete Customer</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="page-header col-lg-offset-1 col-lg-10">
+    <h2>Delete Customer</h2>
+  </div>
+  <form autocomplete="off" novalidate="novalidate"
+        class="form-horizontal well col-lg-offset-1 col-lg-10"
+        data-disable="false" data-toggle="validator"
+        method="post" th:action="@{/customer/delete/__${customer.id}__}"
+        th:object="${customer}" val:validate="${customer}">
+    <p>Are you sure you want to delete this customer?</p>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address Line 1</th>
+        <th>Postcode</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td th:text="${customer.forename}"></td>
+        <td th:text="${customer.surname}"></td>
+        <td nowrap="true" th:text="${customer.addresses[0].line1}"></td>
+        <td nowrap="true" th:text="${customer.addresses[0].postcode}"></td>
+      </tr>
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-danger">Delete</button>
+  </form>
+</div>
+</body>
+</html>

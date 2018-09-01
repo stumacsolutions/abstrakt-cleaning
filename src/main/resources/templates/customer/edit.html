@@ -1,0 +1,39 @@
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:val="http://sourceforge.net/projects/html5valdialect"
+  layout:decorator="layouts/main">
+<head>
+  <title>Customer Details</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="page-header col-lg-offset-1 col-lg-10">
+    <h2>Customer Details</h2>
+  </div>
+  <form autocomplete="off" novalidate="novalidate"
+        class="col-lg-offset-1 col-lg-10 well"
+        data-disable="false" data-toggle="validator"
+        method="post" th:action="@{/customer/save}"
+        th:object="${customer}" val:validate="${customer}">
+    <div class="panel-heading">
+      <div class="btn-group pull-right">
+        <a th:href="@{/customer}">&times;</a>
+      </div>
+      <p>Fill in the details of your customer below.</p>
+    </div>
+    <fieldset>
+      <th:block th:include="fragments/input" th:with="name='forename',label='Forename',type='text'"/>
+      <th:block th:include="fragments/input" th:with="name='surname',label='Surname',type='text'"/>
+      <th:block th:include="fragments/input" th:with="name='addresses[0].line1',label='Address Line 1',type='text'"/>
+      <th:block th:include="fragments/input" th:with="name='addresses[0].line2',label='Address Line 2',type='text'"/>
+      <th:block th:include="fragments/input" th:with="name='addresses[0].line3',label='Address Line 3',type='text'"/>
+      <th:block th:include="fragments/input" th:with="name='addresses[0].city',label='City',type='text'"/>
+      <th:block th:include="fragments/input" th:with="name='addresses[0].postcode',label='Postcode',type='text'"/>
+      <input type="hidden" th:field="*{id}"/>
+      <th:block th:include="fragments/submit"/>
+    </fieldset>
+  </form>
+</div>
+</body>
+</html>

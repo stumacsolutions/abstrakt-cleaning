@@ -1,0 +1,18 @@
+---
+security:
+  admins:
+  - stumacsolutions@gmail.com
+  - stuart.mcgregor@gmail.com
+  info:
+    keys:
+      avatarUrl: picture
+      name: given_name
+      username: email
+  oauth2:
+    client:
+      access-token-uri: https://www.googleapis.com/oauth2/v4/token
+      user-authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+      client-authentication-scheme: form
+      scope: profile email
+    resource:
+      user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo

@@ -1,0 +1,11 @@
+env: flex
+
+runtime: java
+runtime_config:
+  jdk: openjdk8
+
+liveness_check:
+  path: /management/health
+
+readiness_check:
+  path: /management/info
