@@ -21,6 +21,10 @@ public class Customer extends UserData {
     @NotEmpty
     private String surname;
 
+    private String emailAddress;
+
+    private String phoneNumber;
+
     @Valid
     private List<Address> addresses = singletonList(new Address());
 }

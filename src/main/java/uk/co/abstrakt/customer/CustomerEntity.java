@@ -25,6 +25,12 @@ class CustomerEntity extends UserDataEntity {
     @Column(name = "surname", nullable = false)
     private String surname;
 
+    @Column(name = "email_address")
+    private String emailAddress;
+
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
     @OneToMany(cascade = PERSIST)
     private List<AddressEntity> addresses;
 }

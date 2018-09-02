@@ -25,6 +25,8 @@
     <fieldset>
       <th:block th:include="fragments/input" th:with="name='forename',label='Forename',type='text'"/>
       <th:block th:include="fragments/input" th:with="name='surname',label='Surname',type='text'"/>
+      <th:block th:include="fragments/input" th:with="name='emailAddress',label='Email Address',type='email'"/>
+      <th:block th:include="fragments/input" th:with="name='phoneNumber',label='Phone Number',type='tel'"/>
       <th:block th:include="fragments/input" th:with="name='addresses[0].line1',label='Address Line 1',type='text'"/>
       <th:block th:include="fragments/input" th:with="name='addresses[0].line2',label='Address Line 2',type='text'"/>
       <th:block th:include="fragments/input" th:with="name='addresses[0].line3',label='Address Line 3',type='text'"/>
