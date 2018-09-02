@@ -2,8 +2,8 @@
 security:
   oauth2:
     client:
-      client-id: 690080782813-8j3fd5kn0kijqortfnakrmelis035j48.apps.googleusercontent.com
-      client-secret: 37TbRYAdUAHmSKlZAecqFs0U
+      client-id: 859812937015-1kolq4p2qc39rtdbf1ap380v64cibtff.apps.googleusercontent.com
+      client-secret: d7oWo06Fs5-0JwbhufO65hxP
 spring:
   profiles:
     include: google, h2
