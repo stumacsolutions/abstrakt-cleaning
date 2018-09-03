@@ -23,15 +23,16 @@
       <p>Fill in the details of your customer below.</p>
     </div>
     <fieldset>
-      <th:block th:include="fragments/input" th:with="name='forename',label='Forename',type='text'"/>
-      <th:block th:include="fragments/input" th:with="name='surname',label='Surname',type='text'"/>
+      <th:block th:include="fragments/input" th:with="name='name',label='Name',type='text'"/>
       <th:block th:include="fragments/input" th:with="name='emailAddress',label='Email Address',type='email'"/>
       <th:block th:include="fragments/input" th:with="name='phoneNumber',label='Phone Number',type='tel'"/>
-      <th:block th:include="fragments/input" th:with="name='addresses[0].line1',label='Address Line 1',type='text'"/>
-      <th:block th:include="fragments/input" th:with="name='addresses[0].line2',label='Address Line 2',type='text'"/>
-      <th:block th:include="fragments/input" th:with="name='addresses[0].line3',label='Address Line 3',type='text'"/>
-      <th:block th:include="fragments/input" th:with="name='addresses[0].city',label='City',type='text'"/>
-      <th:block th:include="fragments/input" th:with="name='addresses[0].postcode',label='Postcode',type='text'"/>
+      <th:block th:include="fragments/input" th:with="name='frequency',label='Frequency',type='text'"/>
+      <th:block th:include="fragments/input" th:with="name='paymentType',label='Payment Type',type='text'"/>
+      <th:block th:include="fragments/input"
+                th:with="name='addresses[0].flatPosition',label='Flat Position',type='text'"/>
+      <th:block th:include="fragments/input" th:with="name='addresses[0].number',label='Number',type='number'"/>
+      <th:block th:include="fragments/input" th:with="name='addresses[0].street',label='Street',type='text'"/>
+      <th:block th:include="fragments/input" th:with="name='addresses[0].area',label='Area',type='text'"/>
       <input type="hidden" th:field="*{id}"/>
       <th:block th:include="fragments/submit"/>
     </fieldset>

@@ -6,8 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import uk.co.abstrakt.security.User;
 
-import javax.persistence.*;
-import java.time.LocalDate;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
 
 @Getter
 @Setter

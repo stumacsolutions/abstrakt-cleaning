@@ -1,9 +1,10 @@
-package uk.co.abstrakt.customer;
+package uk.co.abstrakt.area;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import uk.co.abstrakt.user.data.UserDataEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,22 +15,13 @@ import javax.persistence.Id;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "address")
-public class AddressEntity {
+@Entity(name = "area")
+public class AreaEntity extends UserDataEntity {
 
     @Id
     @GeneratedValue
     private long id;
 
-    @Column(name = "flat_position")
-    private String flatPosition;
-
-    @Column(name = "number")
-    private Integer number;
-
-    @Column(name = "street")
-    private String street;
-
-    @Column(name = "area")
-    private String area;
+    @Column(name = "name", nullable = false)
+    private String name;
 }

@@ -20,6 +20,9 @@
         <li th:class="${navigationSection == 'home' ? 'active' : ''}">
           <a th:href="@{/}">Home</a>
         </li>
+        <li th:class="${navigationSection == 'areas' ? 'active' : ''}">
+          <a th:href="@{/area}">Areas</a>
+        </li>
         <li th:class="${navigationSection == 'customers' ? 'active' : ''}">
           <a th:href="@{/customer}">Customers</a>
         </li>

@@ -5,21 +5,20 @@ import lombok.Setter;
 import uk.co.abstrakt.user.data.UserData;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
 public class Address extends UserData {
 
-    @NotEmpty
-    private String line1;
+    private String flatPosition;
 
-    private String line2;
-
-    private String line3;
+    @NotNull
+    private Integer number;
 
     @NotEmpty
-    private String city;
+    private String street;
 
     @NotEmpty
-    private String postcode;
+    private String area;
 }

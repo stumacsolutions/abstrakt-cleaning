@@ -6,11 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import uk.co.abstrakt.user.data.UserDataEntity;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.FetchType.EAGER;
 
 @Getter
 @Setter
@@ -19,11 +22,8 @@ import static javax.persistence.CascadeType.PERSIST;
 @Entity(name = "customer")
 class CustomerEntity extends UserDataEntity {
 
-    @Column(name = "forename", nullable = false)
-    private String forename;
-
-    @Column(name = "surname", nullable = false)
-    private String surname;
+    @Column(name = "name", nullable = false)
+    private String name;
 
     @Column(name = "email_address")
     private String emailAddress;
@@ -31,6 +31,12 @@ class CustomerEntity extends UserDataEntity {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @OneToMany(cascade = PERSIST)
+    @Column(name = "frequency")
+    private String frequency;
+
+    @Column(name = "payment_type")
+    private String paymentType;
+
+    @OneToMany(cascade = PERSIST, fetch = EAGER)
     private List<AddressEntity> addresses;
 }

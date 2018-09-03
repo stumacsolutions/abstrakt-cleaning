@@ -6,8 +6,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
-import static java.util.Optional.empty;
-import static java.util.Optional.of;
 import static uk.co.abstrakt.security.User.getCurrentUser;
 
 @Component

@@ -1,0 +1,33 @@
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:val="http://sourceforge.net/projects/html5valdialect"
+  layout:decorator="layouts/main">
+<head>
+  <title>Area Details</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="page-header col-lg-offset-1 col-lg-10">
+    <h2>Area Details</h2>
+  </div>
+  <form autocomplete="off" novalidate="novalidate"
+        class="col-lg-offset-1 col-lg-10 well"
+        data-disable="false" data-toggle="validator"
+        method="post" th:action="@{/area/save}"
+        th:object="${area}" val:validate="${area}">
+    <div class="panel-heading">
+      <div class="btn-group pull-right">
+        <a th:href="@{/area}">&times;</a>
+      </div>
+      <p>Fill in the details of your area below.</p>
+    </div>
+    <fieldset>
+      <th:block th:include="fragments/input" th:with="name='name',label='Name',type='text'"/>
+      <input type="hidden" th:field="*{id}"/>
+      <th:block th:include="fragments/submit"/>
+    </fieldset>
+  </form>
+</div>
+</body>
+</html>

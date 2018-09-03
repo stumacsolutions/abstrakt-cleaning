@@ -6,7 +6,6 @@ import uk.co.abstrakt.user.data.UserData;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
-import java.util.Collections;
 import java.util.List;
 
 import static java.util.Collections.singletonList;
@@ -16,14 +15,15 @@ import static java.util.Collections.singletonList;
 public class Customer extends UserData {
 
     @NotEmpty
-    private String forename;
-
-    @NotEmpty
-    private String surname;
+    private String name;
 
     private String emailAddress;
 
     private String phoneNumber;
+
+    private String frequency;
+
+    private String paymentType;
 
     @Valid
     private List<Address> addresses = singletonList(new Address());

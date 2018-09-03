@@ -3,38 +3,34 @@
   xmlns:th="http://www.thymeleaf.org"
   layout:decorator="layouts/main">
 <head>
-  <title>Manage Customers</title>
+  <title>Manage Areas</title>
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"/>
 </head>
 <body>
 <div layout:fragment="content">
   <div class="col-lg-offset-1 col-lg-10">
     <div class="page-header">
-      <h2>Manage Customers</h2>
+      <h2>Manage Areas</h2>
     </div>
   </div>
   <div class="col-lg-offset-1 col-lg-10">
     <div class="btn-group pull-right" role="group">
-      <a class="btn btn-primary" th:href="@{/customer/add}">Add</a>
+      <a class="btn btn-primary" th:href="@{/area/add}">Add</a>
     </div>
-    <table id="table-customer" class="table table-hover table-responsive dataTable">
+    <table id="table-area" class="table table-hover table-responsive dataTable">
       <thead>
       <tr>
         <th>Name</th>
-        <th>Street</th>
-        <th>Area</th>
       </tr>
       </thead>
       <tbody>
-      <tr th:each="customer : ${customers}">
-        <td th:text="${customer.name}"></td>
-        <td th:text="${customer.addresses[0].street}"></td>
-        <td th:text="${customer.addresses[0].area}"></td>
+      <tr th:each="area : ${areas}">
+        <td th:text="${area.name}"></td>
         <td>
           <div class="btn-toolbar" role="toolbar">
-            <a th:href="@{/customer/copy/__${customer.id}__}" class="btn btn-primary btn-xs">Copy</a>
-            <a th:href="@{/customer/edit/__${customer.id}__}" class="btn btn-warning btn-xs">Edit</a>
-            <a th:href="@{/customer/delete/__${customer.id}__}" class="btn btn-danger btn-xs">Delete</a>
+            <a th:href="@{/area/copy/__${area.id}__}" class="btn btn-primary btn-xs">Copy</a>
+            <a th:href="@{/area/edit/__${area.id}__}" class="btn btn-warning btn-xs">Edit</a>
+            <a th:href="@{/area/delete/__${area.id}__}" class="btn btn-danger btn-xs">Delete</a>
           </div>
         </td>
       </tr>
@@ -46,10 +42,10 @@
   <script type="text/javascript" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
   <script>
 $(document).ready(function(){
-  $('#table-customer').DataTable({
+  $('#table-area').DataTable({
     autoWidth: false, dom: 'tip', ordering: false, pageLength: 50,
     language: {
-      emptyTable: 'No customer has been recorded.'
+      emptyTable: 'No area has been recorded.'
     },
   });
 });
